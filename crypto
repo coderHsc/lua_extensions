@@ -1,0 +1,62 @@
+    local file = io.readfile('X://mt//src//app//mt_app.lua')
+    local baseNum = {'1','2','3','4','5','6','7','8','9','q','w','e','r','t','y','u','i','o','p','a','s','d','f',
+                    'g','h','j','k','l','z','x','c','v','b','n','m'}
+
+    local totalNum = {'1','2','3','4','5','6','7','8','9','q','w','e','r','t','y','u','i','o','p','a','s','d','f',
+                    'g','h','j','k','l','z','x','c','v','b','n','m'}
+
+    --print(file)
+    --print('--------------------------------------------------------')
+
+    -- for k, v in pairs(baseNum ) do  
+    --     local key = ""
+    --     for len =1,2 do 
+    --          key = key ..  v
+    --          print('key',key)
+    --     end 
+
+    -- end 
+    -- for k ,v in pairs(file) do 
+    --     print('cvvvvvvv',v)
+    -- end 
+    --aandm
+  
+    for len =1 ,3 do
+        local newNum={}
+        for k1,v1 in pairs(totalNum) do 
+             local key = v1 
+            for k2,v2 in pairs(baseNum) do 
+                local newKey = key .. v2
+                table.insert(newNum,newKey)  
+            end 
+        end 
+
+        totalNum = {}
+        for k,v in pairs(newNum) do 
+            table.insert(totalNum,v)
+        end 
+
+        --io.writeToFile()
+    end  
+
+    for k,v in pairs(totalNum) do 
+        local file2= crypto.encryptXXTEA(file,v)
+        local substring = 'aadnmxxxxxxxxxxxxxx'
+        --local str = string.tostring(substring)
+        local str = 'aandm'
+
+        if string.find(substring,str) then 
+            print('找到了！',v)
+        end 
+        -- if substring == '?????' then 
+
+        --     print('扎到了',v)
+        --     break
+        -- end     
+       --print('file',file2)
+    end 
+    --print('talbe',table.nums(totalNum))
+   -- local file2= crypto.encryptXXTEA(file, '2')
+
+    --local file3= crypto.decryptXXTEA(file2, '1')
+   -- print(file2)
